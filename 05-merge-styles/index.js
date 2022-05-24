@@ -31,7 +31,7 @@ fs.readdir(path.join(__dirname, 'styles'), {withFileTypes: true}, (err, files) =
     stream.on('data', chunk => cssData += chunk);
     stream.on('end', () => {fs.appendFile(
         path.join(__dirname, 'project-dist', 'bundle.css'),
-        cssData,
+        cssData + '\r\n\r\n',
         err => {
             if (err) throw err;
             //console.log('Записано в бандл');
