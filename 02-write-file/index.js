@@ -10,6 +10,7 @@ stdin.on('data', data => writeData(data.toString()));
 
 function writeData(data){
     if(data.trim() === 'exit'){
+        console.log('До свидания');
         process.exit();
     }
     fs.appendFile(
@@ -21,3 +22,6 @@ function writeData(data){
         }
     );
 }
+
+process.on("SIGINT", () => {console.log('До свидания'); process.exit()});
+
